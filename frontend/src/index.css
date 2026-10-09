@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-base-100 text-base-content font-sans antialiased;
+    background-image: radial-gradient(60rem 40rem at 10% -10%, rgba(168, 85, 247, 0.12), transparent 60%),
+      radial-gradient(50rem 35rem at 110% 10%, rgba(236, 72, 153, 0.08), transparent 60%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-base-200/60 backdrop-blur-xl border border-white/[0.06];
+  }
+
+  .text-gradient {
+    @apply bg-brand bg-clip-text text-transparent;
+  }
+
+  .card-neon {
+    @apply glass-panel rounded-2xl transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-glow;
+  }
+
+  .btn-brand {
+    @apply btn border-0 bg-brand text-white shadow-glow hover:brightness-110 hover:shadow-glow-lg disabled:bg-brand disabled:text-white/80 disabled:opacity-50;
+  }
+
+  .field {
+    @apply input w-full border-white/10 bg-base-300/50 transition placeholder:text-base-content/30 focus:outline-none focus-within:outline-none focus-within:border-primary/70 focus-within:ring-4 focus-within:ring-primary/15;
+  }
+
+  .field-select {
+    @apply select w-full border-white/10 bg-base-300/50 focus:outline-none focus:border-primary/70 focus:ring-4 focus:ring-primary/15;
+  }
+
+  .field-textarea {
+    @apply textarea w-full border-white/10 bg-base-300/50 text-base placeholder:text-base-content/30 focus:outline-none focus:border-primary/70 focus:ring-4 focus:ring-primary/15;
+  }
+}
+
+/* ---------- Stream Chat (dark + neon) ---------- */
+.str-chat {
+  --str-chat__font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  --str-chat__primary-color: #a855f7;
+  --str-chat__active-primary-color: #c084fc;
+  --str-chat__primary-surface-color: rgba(168, 85, 247, 0.18);
+  --str-chat__primary-surface-color-low-emphasis: rgba(168, 85, 247, 0.1);
+  --str-chat__background-color: transparent;
+  --str-chat__secondary-background-color: rgba(18, 16, 29, 0.7);
+  --str-chat__surface-color: #1c1930;
+  --str-chat__secondary-surface-color: rgba(28, 25, 48, 0.6);
+  --str-chat__text-color: #e7e5f4;
+  --str-chat__text-low-emphasis-color: rgba(231, 229, 244, 0.5);
+  --str-chat__message-bubble-background-color: #1c1930;
+  --str-chat__message-bubble-color: #e7e5f4;
+  --str-chat__own-message-bubble-background-color: #a855f7;
+  --str-chat__own-message-bubble-color: #ffffff;
+  --str-chat__border-radius-md: 16px;
+  height: 100%;
+}
+
+.str-chat__channel {
+  height: 100%;
+  flex: 1;
+  min-width: 0;
+}
+
+.str-chat__channel-list {
+  width: 100%;
+  border: none;
+  background: transparent;
+}
+
+.str-chat__message--me .str-chat__message-bubble {
+  background-image: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+}
+
+.str-chat__channel-header {
+  background: rgba(18, 16, 29, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.str-chat__message-input {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.str-chat__list-notifications {
+  display: none;
+}
+
+/* ---------- Stream Video ---------- */
+.str-video {
+  --str-video__primary-color: #a855f7;
+  --str-video__font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+/* we render our own back button on mobile */
+.str-chat__header-hamburger {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .str-chat__channel-header {
+    padding-left: 3rem;
+  }
+}
+
+.str-video__paginated-grid-layout {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* links inside your own (gradient) bubbles */
+.str-chat__message--me .str-chat__message-text a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
