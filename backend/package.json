@@ -1,16 +1,27 @@
 {
-  "name": "backend",
+  "name": "hifiguyz-backend",
   "version": "1.0.0",
+  "private": true,
+  "description": "REST API for HifiGuyz, a language exchange app with real-time chat and video calls",
   "main": "src/server.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js"
   },
-  "keywords": [],
-  "author": "",
-  "type": "module",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "express",
+    "mongodb",
+    "mongoose",
+    "jwt",
+    "stream-chat",
+    "language-exchange"
+  ],
+  "author": "rashiaggarwal12",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
